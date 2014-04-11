@@ -1,0 +1,17 @@
+ResGroupResources:
+	CIwTexture (0x3521f539)
+		"dark_button_down" (0x3ed22e99)
+		Size: 34
+	CIwTexture (0x3521f539)
+		"dark_button_up" (0xd8545c06)
+		Size: 34
+	CIwTexture (0x3521f539)
+		"dark_focus" (0x33ebfc46)
+		Size: 34
+	CIwTexture (0x3521f539)
+		"dark_background" (0x51a3a626)
+		Size: 34
+	ResList 'CIwTexture' pos:45 size:146
+
+ResGroupResources: Wrote 150 bytes to CIwResGroup "IwUICalculator"
+

@@ -1,0 +1,22 @@
+include resource_templates.itx
+
+CIwResGroup
+{
+	name	"IwUICalculator"
+
+	useTemplate	"image"	"iwui"
+	useTemplate	"mtl"	"iwui"
+
+	iwui_style/iwui_style.group { inline true }
+	
+	IwUICalculator/textures/dark_button_down.tga
+	IwUICalculator/textures/dark_button_up.tga
+	IwUICalculator/textures/dark_focus.tga
+	IwUICalculator/textures/dark_background.tga
+
+	useTemplate	"image"	"default"
+	useTemplate	"mtl"	"default"
+
+	IwUICalculator/IwUIStyles.itx
+	IwUICalculator/IwUICalculator.ui
+}

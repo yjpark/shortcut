@@ -1,0 +1,3 @@
+echo $@ > ~/Library/Application\ Support/PettyFun/Shortcut/Dict/lookup_word.txt
+automator lookup-dict.workflow > /dev/null
+./cat-lookup-result

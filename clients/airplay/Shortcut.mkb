@@ -1,0 +1,12 @@
+#!/usr/bin/env mkb
+files
+{
+	[Main]
+	(source)
+	ShortcutMain.cpp
+
+	[Net]
+	(source/net)
+	ServerDiscover.cpp
+}
+

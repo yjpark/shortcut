@@ -1,0 +1,5 @@
+pbpaste > ~/Library/Application\ Support/PettyFun/Shortcut/Dict/lookup_word.txt
+./cat-lookup-word
+echo  -e "\n"
+automator lookup-dict.workflow > /dev/null
+./cat-lookup-result

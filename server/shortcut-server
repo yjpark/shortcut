@@ -1,0 +1,56 @@
+#!/usr/bin/env python
+
+#setup env
+import os
+home = os.path.abspath(os.path.dirname(__file__) or '.')
+import sys
+sys.path.append('%s/../lib' % home)
+
+import logging
+format = '%(asctime)s [%(levelname)s] +%(lineno)d %(filename)s |> %(message)s'
+logging.basicConfig(level=logging.DEBUG, format=format)
+
+import socket
+import tornado.httpserver
+import tornado.ioloop
+import tornado.web
+
+from shortcut import config as C
+C.init()
+
+from core import msg_handler, login_handler, channel_handler, server_handler
+from core import bonjour_register
+
+settings = {
+    'static_path': os.path.join(os.path.dirname(__file__), 'static'),
+    'template_path': os.path.join(os.path.dirname(__file__), 'templates'),
+    'cookie_secret': 'kiex4chae1owaeLuf1baequ3jechah9a',
+    'login_url': '/login',
+    'xsrf_cookies': False,
+}
+
+application = tornado.web.Application([
+    (r'/msg75', msg_handler.MsgHandler75),
+    (r'/msg76', msg_handler.MsgHandler76),
+    (r'/login', login_handler.LoginHandler),
+    (r'/channels/(.+)/(.+)/(.*)', channel_handler.ChannelHandler),
+    (r'/services/(.+)/(.*)', channel_handler.ServiceHandler),
+    (r'/console', server_handler.ConsoleHandler),
+    (r'/', server_handler.HomeHandler),
+], **settings)
+
+ssl_options = {
+    'certfile': C.get_data_path('shortcut.crt'),
+    'keyfile': C.get_data_path('shortcut.key'),
+}
+
+if __name__ == '__main__':
+    if C.get_config(C.SERVER_SECTION, 'start_server'):
+        name = socket.gethostname()
+        port = C.get_config(C.SERVER_SECTION, 'port')
+        http_server = tornado.httpserver.HTTPServer(application,
+                                                    ssl_options=ssl_options)
+        http_server.listen(port)
+        bonjour_register.register(name, port)
+        tornado.ioloop.IOLoop.instance().start()
+

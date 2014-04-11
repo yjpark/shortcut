@@ -1,0 +1,22 @@
+# tornado
+# need to patch tornado for big msg
+
+# mako
+
+# psutil
+
+# autopy
+http://github.com/msanders/autopy#readme
+http://ethan.tira-thompson.org/Mac_OS_X_Ports.html
+
+# appscript
+#from Foundation import *
+#from ScriptingBridge import *
+#iTunes = SBApplication.applicationWithBundleIdentifier_('com.apple.iTunes')
+# Application Support
+mkdir -p ~/Library/Application\ Support/PettyFun/
+cd ~/Library/Application\ Support/PettyFun/
+ln -s ~/projects/pettyfun/shortcut/osx/Application\ Support Shortcut
+mkdir -p ~/Library/Services
+cd ~/Library/Services
+ln -s ~/projects/pettyfun/shortcut/osx/Services/* .

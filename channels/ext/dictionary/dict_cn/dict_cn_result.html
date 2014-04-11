@@ -1,0 +1,63 @@
+<%!
+from xml.sax.saxutils import unescape
+%>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf8">
+<title>${data.dict.key}</title>
+<style type="text/css">
+#pron {
+  font-size: 1.5em;
+  background-color: #eeeeee;
+  color: #660000;
+}
+#definition {
+  padding-top: 3px;
+  font-size: 1.4em;
+}
+#sentences {
+  background-color: #cccccc;
+  margin-top: 10px;
+}
+.sentence {
+  border-style: solid none none;
+  border-top: 1px solid black;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-left: 3px;
+}
+.original {
+  color: #666600;
+}
+.translated {
+  color: #006600;
+}
+
+</style></head>
+<body>
+% if data.dict.pron:
+<div id="pron">
+  ${data.dict.pron.string}
+</div>
+% endif
+<div id="definition">
+% if data.dict.find('def'):
+  ${data.dict.find('def').string.replace('\n\n', '\n').replace('\n', '<br/>')}
+% else:
+  Not Found
+% endif
+</div>
+<div id="sentences">
+% for sentence in data.dict.findAll('sent'):
+  <div class="sentence">
+    <div class="original">
+      ${unescape(sentence.orig.string)}
+    </div>
+    <div class="translated">
+      ${unescape(sentence.trans.string)}
+    </div>
+  </div>
+% endfor
+</div>
+</body>
+</html>

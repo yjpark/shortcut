@@ -1,0 +1,32 @@
+<html>
+<head>
+  <title>{{ title }}</title>
+  <link type="text/css" rel="stylesheet" href="/static/v1/css/console.css">
+  <script type="text/javascript" src="/static/v1/js/jquery/jquery-1.4.2.js"></script>
+  <script type="text/javascript" src="/static/v1/js/jquery/jquery.json-2.2.js"></script>
+  <script type="text/javascript" src="/static/v1/js/prettyprint.js"></script>
+  <script type="text/javascript" src="/static/v1/js/console.js"></script>
+  <script type="text/javascript">
+    var host = top.location.host;
+    shortcut_server_msg_url = "wss://" + host + "/msg76";
+    ws = get_shortcut_ws(shortcut_server_msg_url, on_notify, on_protocol, on_open, on_close);
+  </script>
+</head>
+<body>
+<div id="auth_panel">
+  <input id="auth_code" />
+  <input type="submit" id="auth" value="auth" />
+</div>
+<div id="input_panel">
+  <input type="submit" id="clear" value="clear" />
+  <select id="channels"></select>
+  <select id="cmds"></select>
+  <input id="parameters" />
+  <input type="submit" id="control" value="control" />
+</div>
+<div id="display_toolbar">
+</div>
+<div id="display">
+</div>
+</body>
+</html>

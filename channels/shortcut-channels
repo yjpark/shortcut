@@ -1,0 +1,37 @@
+#!/usr/bin/env python
+
+#setup env
+import os
+home = os.path.abspath(os.path.dirname(__file__) or '.')
+import sys
+sys.path.append('%s/../lib' % home)
+
+import logging
+format = '%(asctime)s [%(levelname)s] +%(lineno)d %(filename)s |> %(message)s'
+logging.basicConfig(level=logging.DEBUG, format=format)
+
+from shortcut import config as C
+C.init()
+
+import asyncore
+
+from core.channel_discover import discover_channels_in_directory
+
+channel_directories = [
+    'core',
+    'ext',
+    'contrib',
+]
+
+if __name__ == '__main__':
+    server_address = C.get_config(C.CHANNEL_SECTION, 'server_address')
+    url = 'wss75://%s/msg75' % server_address
+    auth_code = C.get_config(C.CHANNEL_SECTION, 'server_auth_code')
+    for directory in channel_directories:
+        discover_channels_in_directory(url, auth_code, directory)
+
+    try:
+        asyncore.loop()
+    except KeyboardInterrupt:
+        pass
+

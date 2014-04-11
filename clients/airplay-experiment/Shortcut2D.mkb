@@ -1,0 +1,40 @@
+#!/usr/bin/env mkb
+options
+{
+	strict
+}
+
+subprojects
+{
+	iwui
+}
+
+files
+{
+	(source)
+	Shortcut2D.cpp
+
+	[Data]
+	(data)
+	Shortcut2D.group
+	Shortcut2D/Shortcut2D.ui
+}
+
+assets
+{
+	#Deploy .group.bin files from the 'data-ram/data-gles1' directory if they
+	#have been written there by running the application in resource building
+	#mode, otherwise deploy pre-built binaries from the 'data' directory.
+	#
+	#For your own application, you are likely to want only the
+	#'data-ram/data-gles1' directory specified here.
+	#
+	#See the IwResManager documentation for more information on resource building.
+
+	(data-ram/data-gles1, data)
+	shortcut.group.bin
+
+	(data)
+	splash.jpg
+}
+

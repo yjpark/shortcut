@@ -1,0 +1,1 @@
+../../lib/shortcut/config.py

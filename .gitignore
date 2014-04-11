@@ -52,3 +52,13 @@ coverage.xml
 # Sphinx documentation
 docs/_build/
 
+# Custom stuffs
+.DS_Store
+
+*.pbxuser
+*.mode1v3
+*.perspectivev3
+
+osx/Application Support/Dict/lookup_word.txt
+osx/Application Support/Dict/lookup_result.txt
+

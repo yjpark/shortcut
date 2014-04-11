@@ -1,0 +1,141 @@
+CIwUIStylesheet
+{
+	name "Medium"
+
+	parent "iwui"
+	
+	CIwUIPropertySet
+	{
+		name	<label_large>
+		parent	<label_large>
+		font	font_huge
+	}
+	
+	CIwUIPropertySet
+	{
+		name	<button>
+		parent	<button>
+		font	font_large
+	}
+}
+
+CIwUIStylesheet
+{
+	name "Small"
+
+	parent "Medium"
+	
+	CIwUIPropertySet
+	{
+		name	<label_large>
+		parent	<label_large>
+		font	font_large
+	}
+	
+	CIwUIPropertySet
+	{
+		name	<button>
+		parent	<button>
+		font	font_medium
+	}
+}
+
+CIwUIStylesheet
+{
+	name "Large"
+	
+	parent "Medium"
+	
+	CIwUIPropertySet
+	{
+		name	<button>
+		parent	<button>
+		font	font_huge
+	}
+}
+
+CIwUIStylesheet
+{
+	name "MediumDark"
+
+	parent "Medium"
+	
+	CIwUIPropertySet
+	{
+		name	<button>
+		parent	<button>
+		textColour { 192 192 192 255 }
+	}
+	
+	CIwUIPropertySet
+	{
+		name	<label_large>
+		parent	<label_large>
+		textColour { 255 255 255 255 }
+	}
+	
+	CIwUIPropertySet
+	{
+		name	<button_up>
+		parent	<button_up>
+		texture dark_button_up
+	}
+	
+	CIwUIPropertySet
+	{
+		name	<background>
+		parent	<background>
+		texture dark_background
+	}
+	
+	CIwUIPropertySet
+	{
+		name	<button_down>
+		parent	<button_down>
+		texture dark_button_down
+	}
+	
+	CIwUIPropertySet
+	{
+		name	<focus>
+		parent	<focus>
+		texture dark_focus
+	}
+	
+
+}
+
+CIwUIStylesheet
+{
+	name "SmallDark"
+
+	parent "MediumDark"
+	
+	CIwUIPropertySet
+	{
+		name	<label_large>
+		parent	<label_large>
+		font	font_large
+	}
+	
+	CIwUIPropertySet
+	{
+		name	<button>
+		parent	<button>
+		font	font_medium
+	}
+}
+
+CIwUIStylesheet
+{
+	name "LargeDark"
+	
+	parent "MediumDark"
+	
+	CIwUIPropertySet
+	{
+		name	<button>
+		parent	<button>
+		font	font_huge
+	}
+}

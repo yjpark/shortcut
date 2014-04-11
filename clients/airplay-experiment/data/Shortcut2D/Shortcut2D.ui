@@ -1,0 +1,405 @@
+// IwUICalculator.ui
+// Example Stylesheets
+
+
+CIwUIPropertySet
+{
+	name	<calclabel>
+	style	<label_large>
+	sizeMin  { 160 24 }
+	sizeMax  { -1 -1 }
+	alignH 	"right"
+}
+
+	
+CIwUIPropertySet
+{
+	name	<calcbutton>
+	style	<button>
+	sizeMin  { 36 24 }
+	sizeMax  { -1 -1 }
+	sizeHint { 300 300 }
+}
+
+CIwUIElement
+{
+	name			"Calculator"
+	
+	// Background
+	CIwUIImage
+	{
+		name "Background"
+		style <background>
+	}
+
+	CIwUIElement 
+	{
+		name "GridBase"
+
+		wrapLeft wrap
+		wrapRight wrap
+		wrapUp wrap
+		wrapDown wrap
+		CIwUIFocusHandler2D
+		{
+		}
+
+		CIwUILayoutGrid 
+		{
+			name ""
+
+			column { }
+			column { }
+			column { }
+			column { }
+
+			row { }
+			row { }
+			row { }
+			row { }
+			row { }
+			row { }
+			row { }
+			
+			element
+			{
+				name "Label"
+				row 0
+				column 0
+				columnSpan 4
+				alignH "right"
+			}
+			
+			element 
+			{
+				name "Button_mc"
+				row 1
+				column 0
+			}
+			element 
+			{
+				name "Button_mplus"
+				row 1
+				column 1
+			}
+			element 
+			{
+				name "Button_mminus"
+				row 1
+				column 2
+			}
+			element 
+			{
+				name "Button_mr"
+				row 1
+				column 3
+			}
+
+			element 
+			{
+				name "Button_C"
+				row 2
+				column 0
+			}
+			element 
+			{
+				name "Button_plusminus"
+				row 2
+				column 1
+			}
+			element 
+			{
+				name "Button_divide"
+				row 2
+				column 2
+			}
+			element 
+			{
+				name "Button_times"
+				row 2
+				column 3
+			}
+
+			element 
+			{
+				name "Button_7"
+				row 3
+				column 0
+			}
+			element 
+			{
+				name "Button_8"
+				row 3
+				column 1
+			}
+			element 
+			{
+				name "Button_9"
+				row 3
+				column 2
+			}
+			element 
+			{
+				name "Button_minus"
+				row 3
+				column 3
+			}
+
+			element 
+			{
+				name "Button_4"
+				row 4
+				column 0
+			}
+			element 
+			{
+				name "Button_5"
+				row 4
+				column 1
+			}
+			element 
+			{
+				name "Button_6"
+				row 4
+				column 2
+			}
+			element 
+			{
+				name "Button_plus"
+				row 4
+				column 3
+			}
+
+			element 
+			{
+				name "Button_1"
+				row 5
+				column 0
+			}
+			element 
+			{
+				name "Button_2"
+				row 5
+				column 1
+			}
+			element 
+			{
+				name "Button_3"
+				row 5
+				column 2
+			}
+			element 
+			{
+				name "Button_equal"
+				row 5
+				rowSpan 2
+				column 3
+			}
+
+			element 
+			{
+				name "Button_0"
+				row 6
+				column 0
+				columnSpan 2
+			}
+			element 
+			{
+				name "Button_dot"
+				row 6
+				column 2
+			}
+		}
+		
+		CIwUILabel 
+		{
+			name "Label"
+
+			style	<calclabel>
+			caption "0"
+
+		}
+		
+		CIwUIButton 
+		{
+			name "Button_mr"
+			style <calcbutton>
+			colour { 255 0 0 }
+			caption "mr"
+			OnButtonClick { CController::OnClickButton_mr }
+		}
+		CIwUIButton 
+		{
+			name "Button_times"
+			style <calcbutton>
+			colour { 192 192 192 }
+			caption "x"
+			OnButtonClick { CController::OnClickButton_times }
+		}
+		CIwUIButton 
+		{
+			name "Button_minus"
+			style <calcbutton>
+			colour { 192 192 192 }
+			caption "-"
+			OnButtonClick { CController::OnClickButton_minus }
+		}
+		CIwUIButton 
+		{
+			name "Button_plus"
+			style <calcbutton>
+			colour { 192 192 192 }
+			caption "+"
+			OnButtonClick { CController::OnClickButton_plus }
+		}
+	
+		CIwUIButton 
+		{
+			name "Button_3"
+			style <calcbutton>
+			caption "3"
+			OnButtonClick { CController::OnClickButton_3 }
+		}
+		CIwUIButton 
+		{
+			name "Button_0"
+			style <calcbutton>
+			sizeMin  { 72 24 }
+			sizeHint  { 600 300 }
+			caption "0"
+			OnButtonClick { CController::OnClickButton_0 }
+		}
+		CIwUIButton 
+		{
+			name "Button_dot"
+			style <calcbutton>
+			caption "."
+			OnButtonClick { CController::OnClickButton_dot }
+		}
+		
+		CIwUIButton 
+		{
+			name "Button_1"
+			style <calcbutton>
+			caption "1"
+			OnButtonClick { CController::OnClickButton_1 }
+		}
+		CIwUIButton 
+		{
+			name "Button_2"
+			style <calcbutton>
+			caption "2"
+			OnButtonClick { CController::OnClickButton_2 }
+		}
+			
+		CIwUIButton 
+		{
+			name "Button_equal"
+			style <calcbutton>
+			colour { 255 128 0 }
+			sizeMin  { 36 48 }
+			sizeHint  { 300 600 }
+			caption "="
+			OnButtonClick { CController::OnClickButton_equal }
+		}
+		
+		CIwUIButton 
+		{
+			name "Button_mc"
+			style <calcbutton>
+			colour { 255 0 0 }
+			caption "mc"
+			OnButtonClick { CController::OnClickButton_mc }
+		}
+		CIwUIButton 
+		{
+			name "Button_mplus"
+			style <calcbutton>
+			colour { 255 0 0 }
+			caption "m+"
+			OnButtonClick { CController::OnClickButton_mplus }
+		}
+		CIwUIButton 
+		{
+			name "Button_mminus"
+			style <calcbutton>
+			colour { 255 0 0 }
+			caption "m-"
+			OnButtonClick { CController::OnClickButton_mminus }
+		}
+		CIwUIButton 
+		{
+			name "Button_C"
+			style <calcbutton>
+			colour { 192 192 192 }
+			caption "c"
+			OnButtonClick { CController::OnClickButton_C }
+		}
+		CIwUIButton 
+		{
+			name "Button_plusminus"
+			style <calcbutton>
+			colour { 192 192 192 }
+			caption "+/-"
+			OnButtonClick { CController::OnClickButton_plusminus }
+		}
+		CIwUIButton 
+		{
+			name "Button_divide"
+			style <calcbutton>
+			colour { 192 192 192 }
+			caption "/"
+			OnButtonClick { CController::OnClickButton_divide }
+		}
+		CIwUIButton 
+		{
+			name "Button_7"
+			style <calcbutton>
+			caption "7"
+			OnButtonClick { CController::OnClickButton_7 } 
+		}
+		CIwUIButton 
+		{
+			name "Button_8"
+			style <calcbutton>
+			caption "8"
+			OnButtonClick { CController::OnClickButton_8 } 
+		}
+		CIwUIButton 
+		{
+			name "Button_9"
+			style <calcbutton>
+			caption "9"
+			OnButtonClick { CController::OnClickButton_9 } 
+		}
+		CIwUIButton 
+		{
+			name "Button_4"
+			style <calcbutton>
+			caption "4"
+			OnButtonClick { CController::OnClickButton_4 } 
+		}
+		CIwUIButton 
+		{
+			name "Button_5"
+			style <calcbutton>
+			caption "5"
+			OnButtonClick { CController::OnClickButton_5 } 
+		}
+		CIwUIButton 
+		{
+			name "Button_6"
+			style <calcbutton>
+			caption "6"
+			OnButtonClick { CController::OnClickButton_6 } 
+		}
+	}
+
+	CIwUILayout
+	{
+		sizeToSpace	true
+
+		element { name "Background" }
+		element { name "GridBase" }
+	}
+}

@@ -1,0 +1,55 @@
+<html>
+<head>
+  <title>{{ title }}</title>
+</head>
+<body>
+  <h2>Channels</h2>
+  <ul>
+    {% for channel in channels.values() %}
+      <h3><a name="{{ escape('%s' % channel.identifier) }}">
+        <li>{{ escape('%s' % channel.identifier) }}</li>
+      </a></h3>
+	<h4>Title: {{ escape(channel.protocol['data']['title']) }}</h4>
+        <h4>Owner:
+          <a href="#{{ escape('%s' % channel.owner) }}">
+            {{ escape('%s' % channel.owner) }}
+          </a>
+        </h4>
+        <h4>listeners:</h4>
+          <ul>
+            {% for connection in channel.listeners %}
+              <a href="#{{ escape('%s' % connection) }}">
+                <li>{{ escape('%s' % connection) }}</li>
+              </a>
+            {% end %}
+          </ul>
+    {% end %}
+  </ul>
+  <h2>Connections</h2>
+  <ul>
+    {% for connection in connections %}
+      <h3><a name="{{ escape('%s' % connection) }}">
+        <li>{{ escape('%s' % connection) }}
+      </a></h3>
+        <h4>Owning Channels:</h4>
+          <ul>
+            {% for channel in connection.owning_channels %}
+              <a href="#{{ escape(channel) }}">
+                <li>{{ escape(channel) }}</li>
+              </a>
+            {% end %}
+          </ul>
+        <h4>Listening Channels:</h4>
+          <ul>
+            {% for channel in connection.listening_channels %}
+              <a href="#{{ escape(channel) }}">
+                <li>{{ escape(channel) }}</li>
+              </a>
+            {% end %}
+          </ul>
+      </li>
+    {% end %}
+  </ul>
+  <h4><a href="/console">Console</a></h4>
+</body>
+</html>
